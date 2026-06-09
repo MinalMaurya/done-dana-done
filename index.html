@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <title>AngularJS To-Do List with Nested Subtasks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="TodoController">
+
+
+    <div class="todo-container">
+        <h1>Done Dana Done- simple to do list</h1>
+
+
+        <!-- Progress bar for task completion percentage -->
+        <div class="progress-bar-container">
+            <div class="progress-bar" ng-style="{width: taskCompletionPercentage() + '%'}">
+                {{ taskCompletionPercentage() }}% Completed
+            </div>
+        </div>
+
+
+        <!-- Form to add a new task (Pressing Enter adds task) -->
+        <form ng-submit="addTask()">
+            <input type="text" ng-model="newTask" placeholder="Add new task" required ng-keypress="($event.which === 13) && addTask()">
+            <button type="submit" class="blue-btn">Add Task</button>
+        </form>
+
+
+        <!-- Button to remove all tasks -->
+        <button ng-click="removeAllTasks()" ng-if="tasks.length > 0" class="red-btn">Remove All Tasks</button>
+
+
+        <!-- Task List -->
+        <ol>
+            <li ng-repeat="task in tasks">
+                <div class="task-container">
+                    <span ng-class="{ 'completed': task.completed }" ng-click="toggleCompletion(task)">{{ task.text }}</span>
+                    <div class="task-options">
+                        <button ng-click="toggleCompletion(task)" class="green-btn">Completed</button>
+                        <button ng-click="removeTask(tasks, $index)" class="red-btn">Remove</button>
+                        <button ng-click="task.showSubtaskInput = !task.showSubtaskInput" class="blue-btn">Add Subtask</button>
+                    </div>
+                </div>
+
+
+                <!-- Subtask input form -->
+                <div ng-show="task.showSubtaskInput" class="subtask-container">
+                    <input type="text" ng-model="task.newSubtask" placeholder="Add new subtask" ng-keypress="($event.which === 13) && addSubtask(task)">
+                    <button ng-click="addSubtask(task)" class="blue-btn">Add Subtask</button>
+                </div>
+
+
+                <!-- Subtask list -->
+                <ul class="subtask-list">
+                    <li ng-repeat="subtask in task.subtasks">
+                        <div class="subtask-container">
+                            <span ng-class="{ 'completed': subtask.completed }" ng-click="toggleCompletion(subtask)">{{ subtask.text }}</span>
+                            <div class="task-options">
+                                <button ng-click="toggleCompletion(subtask)" class="green-btn">Completed</button>
+                                <button ng-click="removeTask(task.subtasks, $index)" class="red-btn">Remove</button>
+                                <button ng-click="subtask.showSubtaskInput = !subtask.showSubtaskInput" class="blue-btn">Add Subtask</button>
+                            </div>
+                        </div>
+
+
+                        <!-- Subtask input form for subtasks -->
+                        <div ng-show="subtask.showSubtaskInput" class="subtask-container">
+                            <input type="text" ng-model="subtask.newSubtask" placeholder="Add new subtask" ng-keypress="($event.which === 13) && addSubtask(subtask)">
+                            <button ng-click="addSubtask(subtask)" class="blue-btn">Add Subtask</button>
+                        </div>
+
+
+                        <!-- Nested subtask list -->
+                        <ul class="subtask-list">
+                            <li ng-repeat="subsubtask in subtask.subtasks">
+                                <div class="subtask-container">
+                                    <span ng-class="{ 'completed': subsubtask.completed }" ng-click="toggleCompletion(subsubtask)">{{ subsubtask.text }}</span>
+                                    <div class="task-options">
+                                        <button ng-click="toggleCompletion(subsubtask)" class="green-btn">Completed</button>
+                                        <button ng-click="removeTask(subtask.subtasks, $index)" class="red-btn">Remove</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

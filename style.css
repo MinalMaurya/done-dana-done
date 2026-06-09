@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+
+.todo-container {
+    width: 50%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+h1 {
+    text-align: center;
+}
+
+
+form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+button {
+    padding: 8px 12px; /* Shorter buttons */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px; /* Slightly smaller font size */
+    cursor: pointer;
+}
+
+
+.green-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+.red-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+
+.blue-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+
+.completed {
+    text-decoration: line-through;
+}
+
+
+ul, ol {
+    padding-left: 20px;
+}
+
+
+.progress-bar-container {
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+
+.progress-bar {
+    height: 20px;
+    background-color: #4CAF50;
+    text-align: center;
+    color: white;
+}
+
+
+.task-container, .subtask-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.task-options {
+    display: flex;
+    gap: 10px;
+}
+
+
+.subtask-list {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+
+.subtask-list li {
+    margin-bottom: 10px;
+}
