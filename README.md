@@ -5,6 +5,9 @@
 > 🚧 This project is currently under development and will continue to evolve with new features in future versions.
 
 ---
+## 🎥 Demo
+
+Watch the project demo here: https://www.youtube.com/watch?v=qnrJbukqjtY
 
 ## ✨ Features
 
