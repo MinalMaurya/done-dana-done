@@ -9,6 +9,21 @@
 
 Watch the project demo here: https://www.youtube.com/watch?v=qnrJbukqjtY
 
+---
+## 📸 Screenshots
+
+Preview of the application's interface and core functionality.
+### 🏠 Home Page
+![Home Page](home.png)
+
+### ➕ Adding a Task
+![Adding a Task](adding_task.png)
+
+### ✅ Completed Task
+![Completed Task](completed_task.png)
+
+---
+
 ## ✨ Features
 
 - ✅ Add Tasks
